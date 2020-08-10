@@ -8,7 +8,7 @@
 <AuthorizeView>
     <Authorized>
         Access granted to @context.User.Identity.Name.
-        Your favorite band is @favoriteBandName.
+        Your city is: @context.User.Claims.Where(x => x.Type == "city").FirstOrDefault().Value;
     </Authorized>
 </AuthorizeView>
 
@@ -18,19 +18,8 @@
 
 @code {
     private int currentCount = 0;
-    public string favoriteBandName = "not available";
 
     private void IncrementCount()
     {
         currentCount++;
     }
-
-    private string GetUserBandName()
-    {
-        var tokenClaimBandResult = AuthStateProvider.GetAuthenticationStateAsync().Result.User.Claims.Where(x => x.Type == "band").FirstOrDefault().Value;
-
-        if (tokenClaimBandResult != null) favoriteBandName = tokenClaimBandResult;
-
-        return favoriteBandName;
-    }
-}
