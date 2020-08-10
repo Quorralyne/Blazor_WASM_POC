@@ -1,6 +1,6 @@
 # Blazor WebAssembly SPA App - Okta Sample
 
-This repo follows the Blazor WebAssembly Individual Authentication template, Standalone with Authentication library, selected as a Progressive Web App/SPA.
+This repo follows the Blazor WebAssembly Individual Authentication template in Visual Studio 2019 (File > New), Standalone with Authentication library, selected as a Progressive Web App/SPA.
 
 This example uses an Okta developer account as the authority, configured as a Web app/SPA with the callback URIs defined in the Okta portal, and added to the appsettings file.
 
