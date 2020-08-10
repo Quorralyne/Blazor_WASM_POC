@@ -1,24 +1,6 @@
 @page "/authentication/{action}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-@using Microsoft.Extensions.Configuration
-
-@inject NavigationManager Navigation
-@inject IConfiguration Configuration
-@inject IAccessTokenProvider AccessTokenProvider
-
-<RemoteAuthenticatorView Action="@Action">
-    <LogOut>
-        @{
-            var accessTokenResult = AccessTokenProvider.RequestAccessToken().Result;
-
-            var idToken = accessTokenResult.TryGetToken(out AccessToken accessToken).ToString();
-            var authority = (string)Configuration["Okta:Authority"];
-            var postLogoutRedirectURI = (string)Configuration["Okta:PostLogoutRedirectURI"];
-
-            Navigation.NavigateTo($"{authority}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${postLogoutRedirectURI}");
-        }
-    </LogOut>
-</RemoteAuthenticatorView>
+<RemoteAuthenticatorView Action="@Action" />
 
 @code{
     [Parameter] public string Action { get; set; }
