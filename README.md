@@ -1,4 +1,4 @@
-# Blazor_WASM_POC
+# Blazor WebAssembly SPA App - Okta Sample
 
 This repo follows the Blazor WebAssembly Individual Authentication template, Standalone with Authentication library, selected as a Progressive Web App/SPA.
 
@@ -10,3 +10,5 @@ Additional functionality integrated beyond basic auth includes:
 2. Additional scopes added to the OIDC request in Program.cs
 3. Added razor page to display the user's claims from the JWT
 4. The Counter page updated to display a custom claim for the user configured within Okta
+
+An Okta developer account is required to run this successfully. Sign up for a free account at https://developer.okta.com
