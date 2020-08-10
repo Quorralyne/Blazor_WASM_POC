@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+
+@page "/counter"
+@attribute [Authorize]
+
+<h1>Counter</h1>
+<AuthorizeView>
+    <Authorized>
+        Access granted to @context.User.Identity.Name.
+        Your favorite band is @context.User.Claims.Where(x => x.Type == "band").FirstOrDefault().Value.
+    </Authorized>
+</AuthorizeView>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
