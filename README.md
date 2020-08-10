@@ -2,7 +2,7 @@
 
 This repo follows the Blazor WebAssembly Individual Authentication template in Visual Studio 2019 (File > New), Standalone with Authentication library (Individual account), selected as a Progressive Web App/SPA.
 
-This example uses an Okta developer account as the authority, configured as a Web app/SPA with the callback URIs defined in the Okta portal, and added to the appsettings file. Only OIDC was used, no Okta SDK.
+This example uses an Okta developer account as the authority, configured as a Web app/SPA with the callback URIs defined in the Okta portal, and added to the appsettings file. Only OIDC was used, no Okta SDK. This is just the front end solution, so there is no token validation done, as it would be expected a backend API would do that. (Future project showing validation forthcoming).
 
 Additional functionality integrated beyond basic auth includes:
 
