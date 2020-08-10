@@ -27,7 +27,6 @@ namespace BlazorWASMPOC
                 options.ProviderOptions.ResponseType = "code";
                 options.ProviderOptions.DefaultScopes.Add("profile");
                 options.ProviderOptions.DefaultScopes.Add("address");
-                options.ProviderOptions.DefaultScopes.Add("api_scope");
                 builder.Configuration.Bind("Okta", options.ProviderOptions);
             });
 

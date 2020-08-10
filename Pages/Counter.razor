@@ -2,12 +2,13 @@
 
 @page "/counter"
 @attribute [Authorize]
+@inject AuthenticationStateProvider AuthStateProvider
 
 <h1>Counter</h1>
 <AuthorizeView>
     <Authorized>
         Access granted to @context.User.Identity.Name.
-        Your favorite band is @context.User.Claims.Where(x => x.Type == "band").FirstOrDefault().Value.
+        Your favorite band is @favoriteBandName.
     </Authorized>
 </AuthorizeView>
 
@@ -17,9 +18,19 @@
 
 @code {
     private int currentCount = 0;
+    public string favoriteBandName = "not available";
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    private string GetUserBandName()
+    {
+        var tokenClaimBandResult = AuthStateProvider.GetAuthenticationStateAsync().Result.User.Claims.Where(x => x.Type == "band").FirstOrDefault().Value;
+
+        if (tokenClaimBandResult != null) favoriteBandName = tokenClaimBandResult;
+
+        return favoriteBandName;
     }
 }
